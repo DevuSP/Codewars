@@ -1,28 +1,31 @@
-// In a factory a printer prints labels for boxes. For one kind of boxes the printer has to use colors which, for the sake of simplicity, are named with letters from a to m.
+// Given an array (arr) as an argument complete the function countSmileys that should return the total number of smiling faces.
 
-// The colors used by the printer are recorded in a control string. For example a "good" control string would be aaabbbbhaijjjm meaning that the printer used three times color a, four times color b, one time color h then one time color a...
+// Rules for a smiling face:
 
-// Sometimes there are problems: lack of colors, technical malfunction and a "bad" control string is produced e.g. aaaxbbbbyyhwawiwjjjwwm with letters not from a to m.
+// Each smiley face must contain a valid pair of eyes. Eyes can be marked as : or ;
+// A smiley face can have a nose but it does not have to. Valid characters for a nose are - or ~
+// Every smiling face must have a smiling mouth that should be marked with either ) or D
+// No additional characters are allowed except for those mentioned.
 
-// You have to write a function printer_error which given a string will return the error rate of the printer as a string representing a rational whose numerator is the number of errors and the denominator the length of the control string. Don't reduce this fraction to a simpler expression.
+// Valid smiley face examples: :) :D ;-D :~)
+// Invalid smiley faces: ;( :> :} :]
 
-// The string has a length greater or equal to one and contains only letters from ato z.
+// Example
+// countSmileys([':)', ';(', ';}', ':-D']);       // should return 2;
+// countSmileys([';D', ':-(', ':-)', ';~)']);     // should return 3;
+// countSmileys([';]', ':[', ';*', ':$', ';-D']); // should return 1;
+// Note
+// In case of an empty array return 0. You will not be tested with invalid input (input will always be an array). Order of the face (eyes, nose, mouth) elements will always be the same.
 
-// Examples:
-// s="aaabbbbhaijjjm"
-// printer_error(s) => "0/14"
+function countSmileys(arr) {
+  let count = 0;
+  let pattern = /^(:|;)(-|~)?(D|\)$)/
+  arr.forEach((testSmile)=>{
+      if(pattern.test(testSmile)){
+        count += 1;
+      }
+    })
+  return count;
+}
 
-// s="aaaxbbbbyyhwawiwjjjwwm"
-// printer_error(s) => "8/22"
-
-function printerError(s) {
-   let nume = 0
-   s.split("").forEach((letter)=>{
-    if((/[n-z]/).test(letter)){
-      nume += 1;
-    }
-   })
-   return String(nume) + "/" + String(s.length);
-  }
-
-console.log(printerError("aaaaaaaaaaaaaaaabbbbbbbbbbbbbbbbbbmmmmmmmmmmmmmmmmmmmxyz"))
+console.log(countSmileys([':)',':(',':D',':O',':;']))
