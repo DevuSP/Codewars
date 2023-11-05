@@ -25,18 +25,18 @@
 // "  *\n ***\n*****\n ***\n  *\n"
 
 function diamond(n) {
-  if (n % 2 === 0 || n < 0) { return null }
-  let string = "";
-  let diamondString = 1;
-  let spaces = 0;
-  for (let i = 1; i < n + 1; i++) {
-      spaces = Math.floor((n-diamondString) / 2);
-      string += " ".repeat(spaces) + "*".repeat(diamondString) +  "\n";
-   
-    if(i < n/2){
-      diamondString += 2;
-    } else {diamondString -= 2}
+    if (n % 2 === 0 || n < 0) { return null }
+    let string = "";
+    let diamondString = 1;
+    let spaces = 0;
+    for (let i = 1; i < n + 1; i++) {
+        spaces = Math.floor((n-diamondString) / 2);
+        string += " ".repeat(spaces) + "*".repeat(diamondString) +  "\n";
+     
+      if(i < n/2){
+        diamondString += 2;
+      } else {diamondString -= 2}
+    }
+    return string
   }
-  return string
-}
-console.log(diamond(3));
+  console.log(diamond(3));
