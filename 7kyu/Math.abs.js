@@ -8,6 +8,6 @@
 // Let's assume that all numbers in the input will be integer values.
 
 function sumDigits(number) {
-    return String(Math.abs(number)).split("").reduce((a,b)=> Number(a) + Number(b), 0);
+    return String(Math.abs(number)).split("").reduce((a,b)=> Number(a) + Number(b), 0); // Math.abs is like modulo. makes number positive.
     }
     console.log(sumDigits(0));
