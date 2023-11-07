@@ -54,3 +54,18 @@ solution2
   function findShort(s){
     return Math.min(...s.split(" ").map (s => s.length));
 }
+
+// Factorial :-Your task is to write function factorial.
+function factorial(n){
+  //your code here
+  if(n == 1 || n == 0){
+    return 1;
+  }
+  let factorial = 1;
+  for(let i = 1; i < n + 1; i++){
+    factorial *= i;
+  }
+  return factorial;
+}
+
+factorial(213);
