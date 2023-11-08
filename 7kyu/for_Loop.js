@@ -56,6 +56,7 @@ solution2
 }
 
 // Factorial :-Your task is to write function factorial.
+// Solution 1
 function factorial(n){
   //your code here
   if(n == 1 || n == 0){
@@ -69,7 +70,18 @@ function factorial(n){
 }
 
 factorial(213);
-
+// Solution 2
+function factorial(n)
+{
+  // Calculate the factorial here
+  if(n == 0 || n == 1){return 1}
+  if(n < 0 || n > 12){throw new RangeError()}
+  let factorial = 1;
+  for(let i = 1; i < n+1; i++){
+    factorial *= i;
+  }
+  return factorial;
+}
 
 
 
