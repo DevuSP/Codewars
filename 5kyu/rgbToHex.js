@@ -24,14 +24,13 @@ function rgb(r, g, b) {
             console.log(firstHex);
         }
 
-
         let divideSecond = Math.round(Number("0." + String(divide[1]).slice(0, 2)) * 16);
         console.log(divideSecond);
         if (divideSecond && divideSecond > 9) {
             SecondHex = hexAlpha[divideSecond - 10];
         } else if (!divideSecond) {
             SecondHex = "0";
-        } else (divideSecond){
+        } else {
             SecondHex = divideSecond;
         }
         console.log(SecondHex);
