@@ -14,7 +14,7 @@ function rgb(r, g, b) {
         else if (number >= 255) { return "FF" }
         let firstHex;
         let SecondHex;
-        const hexAlpha = ["A", "B", "C", "D", "E", "F"];
+        let hexAlpha = ["A", "B", "C", "D", "E", "F"];
         let divide = String(number / 16).split(".");
         console.log(divide);
         if (divide[0] <= 9) {
@@ -25,16 +25,14 @@ function rgb(r, g, b) {
         }
 
 
-        if (divide[1]) {
-            let divideSecond = Math.round(Number("0." + String(divide[1]).slice(0, 2)) * 16);
-            console.log(divideSecond);
-            if(divideSecond > 9){
-               SecondHex = hexAlpha[(divideSecond)]
-            } else {
-                SecondHex = divideSecond;
-            }
-             
-            console.log((Number("0." + String(divide[1]).slice(0, 2)) * 16) - 10);
+        let divideSecond = Math.round(Number("0." + String(divide[1]).slice(0, 2)) * 16);
+        console.log(divideSecond);
+        if (divideSecond && divideSecond > 9) {
+            SecondHex = hexAlpha[divideSecond - 10];
+        } else if (!divideSecond) {
+            SecondHex = "0";
+        } else (divideSecond){
+            SecondHex = divideSecond;
         }
         console.log(SecondHex);
         return firstHex + SecondHex;
@@ -42,5 +40,5 @@ function rgb(r, g, b) {
     return toHex(r) + toHex(g) + toHex(b);
 }
 
-const result = rgb(300, 255, 255);
-console.log(result); 
+const result = rgb(71, 166, 48);
+console.log(result); //47A630
