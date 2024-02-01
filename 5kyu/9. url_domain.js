@@ -25,7 +25,7 @@ function domainName(url){
     return url.slice(firstIndex, lastIndex);
   }
 
-  solution with brain; 
+  // solution with brain; 
 
   function domainName(url){
     url = url.replace("https://", '');
